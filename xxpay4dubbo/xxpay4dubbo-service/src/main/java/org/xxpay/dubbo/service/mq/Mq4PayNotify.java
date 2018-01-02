@@ -54,7 +54,7 @@ public class Mq4PayNotify extends BaseService {
      * @param msg
      * @param delay
      */
-    public void send(String msg, long delay) {
+    public void send(final String msg, final long delay) {
         _log.info("发送MQ延时消息:msg={},delay={}", msg, delay);
         jmsTemplate.send(this.payNotifyQueue, new MessageCreator() {
             public Message createMessage(Session session) throws JMSException {
@@ -69,14 +69,17 @@ public class Mq4PayNotify extends BaseService {
 
     private static class TrustAnyTrustManager implements X509TrustManager {
 
+        @Override
         public void checkClientTrusted(X509Certificate[] chain, String authType)
                 throws CertificateException {
         }
 
+        @Override
         public void checkServerTrusted(X509Certificate[] chain, String authType)
                 throws CertificateException {
         }
 
+        @Override
         public X509Certificate[] getAcceptedIssuers() {
             return new X509Certificate[] {};
         }
