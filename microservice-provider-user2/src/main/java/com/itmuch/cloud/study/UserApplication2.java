@@ -3,17 +3,11 @@ package com.itmuch.cloud.study;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.feign.EnableFeignClients;
 
-/**
- * 使用@EnableFeignClients开启Feign,并且会扫描@FeignClient注解
- * @author eacdy
- */
 @SpringBootApplication
-@EnableFeignClients
 @EnableDiscoveryClient
-public class MovieFeignApplication {
+public class UserApplication2 {
   public static void main(String[] args) {
-    SpringApplication.run(MovieFeignApplication.class, args);
+    SpringApplication.run(UserApplication2.class, args);
   }
 }
